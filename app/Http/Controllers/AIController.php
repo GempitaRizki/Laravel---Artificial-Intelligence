@@ -15,8 +15,9 @@ class AIController extends Controller
 
         $kalimat = $request->kalimat;
 
-        $open_ai = new OpenAi(env('OPEN_AI_API_KEY'));
-        $prompt = "Membuat Kalimat Palsu dari sebuah kata";
+        $open_ai = new OpenAi(getenv('OPENAI_API_KEY'));
+        $prompt = "Membuat Kalimat Palsu dari sebuah kata" .
+        $kalimat. "\n" ;
 
         $openAiOutput = $open_ai->complete([
             'engine' => 'davinci-instruct-beta-v3',
@@ -27,7 +28,9 @@ class AIController extends Controller
             'presence_penalty' => 0.6,
         ]);
 
-        return view('ai.index', ['result' => 'Setiap kata 
-        ter-generate menggunakan AI']);
+        $output = json_decode($openAiOutput, true);
+        $outputText = $output["choices"][0]["text"];
+
+        return view('ai.index', ['result' => $outputText ]);
     }
 }

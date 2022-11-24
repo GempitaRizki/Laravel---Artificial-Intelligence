@@ -22,7 +22,7 @@
 
 
     @if (isset($result))
-        <h3>Output</h3>
+        <h3>Hasil</h3>
         <div>{{ $result }}</div>
         
     @endif
