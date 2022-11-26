@@ -7,5 +7,6 @@ I was inspired to make this program by my interest in AI and Laravel.
 <li>Open-Ai</li>
 <li>GPT-3(Davinci models)</li>
 <br>
+<br>
 
 ![image](https://user-images.githubusercontent.com/38187462/204042907-605e6eab-0361-48f2-bd10-2c533c08cce3.png)
